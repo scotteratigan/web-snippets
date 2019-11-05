@@ -32,7 +32,9 @@ export default function App() {
     </html>
       `;
     setiFrameCode(code);
-    console.log('setting code to:', code);
+  }
+  function clearIframe() {
+    setiFrameCode('');
   }
   function formatCode() {
     const newHTML = prettier.format(html, {
@@ -62,6 +64,7 @@ export default function App() {
       <ControlArea>
         <ControlButton onClick={formatCode}>Format Code</ControlButton>
         <ControlButton onClick={updateIframe}>Update iFrame</ControlButton>
+        <ControlButton onClick={clearIframe}>Clear iFrame</ControlButton>
       </ControlArea>
       <ResultFrame code={iFrameCode} />
     </AppDiv>
@@ -88,9 +91,10 @@ const ControlArea = styled.div`
 `;
 
 const ControlButton = styled.button`
-  background-color: silver;
+  background-color: #e2e2e2;
   color: black;
-  border: 1px solid #111;
+  border: 1px solid silver;
+  border-radius: 3px;
   margin: 0 1rem;
   padding: 0.2rem 0.6rem;
 `;
